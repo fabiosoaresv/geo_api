@@ -1,18 +1,25 @@
-# Quick guide para projeto Python usando FastAPI
+## Quick guide para projeto Python usando FastAPI
 
-# Criar env de um projeto novo
+### Criar env de um projeto novo
+```bash
 python -m venv venv
+```
 
-# Ativar a env
+### Ativar a env
+```bash
 source venv/bin/activate
+```
 
-# Criar a pasta app + atribuir permissão correta
+### Criar a pasta app + atribuir permissão correta
+```bash
 sudo chown -R fventurelli:fventurelli app/
+```
 
-# Instalar dependências
+### Instalar dependências
+```bash
 pip install lib
-fastapi uvicorn dotenv sqlalchemy psycopg2-binary alembic pydantic
-
+```
+```
 fastapi – framework web moderno, rápido e assíncrono.
 uvicorn – servidor ASGI que roda o FastAPI.
 dotenv - utilizar variáveis de ambiente
@@ -22,26 +29,30 @@ alembic – ferramenta de migrations para versionar o schema do banco.
 pydantic – validação e serialização de dados (usada no FastAPI para schemas).
 requests - fazer requests em api externa
 pytest - fazer testes unitários
-
-# Startar projeto com o uvicorn
+```
+### Startar projeto com o uvicorn
+```bash
 uvicorn app.main:app --reload
+```
 
-# Debbuger
+### Debbuger
+```bash
 import pdb
 pdb.set_trace()
+```
 
-# Requests
-GET weather Piraju
+### Requests
+**GET weather Piraju**
 ```bash
 curl --location --request POST 'http://localhost:8000/weather/Piraju'
 ```
 
-GET weather async Piraju
+**GET weather async Piraju**
 ```bash
 curl --location --request POST 'http://localhost:8000/async/weather/Piraju'
 ```
 
-POST users
+**POST users**
 ```bash
 curl --location 'http://localhost:8000/users' \
 --header 'Content-Type: application/json' \
@@ -52,7 +63,7 @@ curl --location 'http://localhost:8000/users' \
 }'
 ```
 
-# Rodar testes unitários
+### Rodar testes unitários
 ```bash
 pytest
 ```
